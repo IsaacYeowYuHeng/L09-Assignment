@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polytechnics Information</title>
+    <!-- Add necessary library links -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add your own styles or use external stylesheets as needed -->
+    <style>
+        /* Add your custom styles here */
+        #map {
+            /* Style your map container */
+            width: 60%;
+            height: 400px; /* Set an appropriate height */
+            position: relative;
+        }
+
+        .chart-container {
+            /* Style your chart container */
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        #polytechnicTable {
+            /* Style your table */
+            width: 80%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Map container with hotspots -->
+    <div id="map">
+        <div id="map">
+            <img src="img/singapore.png" alt="Singapore Map" style="width: 100%; height: 100%;" />
+            <!-- Example hotspot -->
+            <div class="hotspot" data-polytechnic="Polytechnic Name" data-x="50" data-y="100"></div>
+            <!-- Add more hotspots as needed -->
+        </div>
+    </div>
+
+    <!-- Interactive table containing diploma courses from RP -->
+    <table id="polytechnicTable">
+        <!-- Populate your table with diploma course data from courses.html -->
+    </table>
+
+    <!-- Chart container for the number of students in each polytechnic -->
+    <div class="chart-container">
+        <canvas id="polytechnicChart"></canvas>
+    </div>
+
+    <script>
+        // Your JavaScript code for handling hotspots, table, and chart goes here
+
+        // Example code for initializing DataTables
+        $(document).ready(function () {
+            $('#polytechnicTable').DataTable({
+                // Your DataTable configuration options
+            });
+        });
+
+        // Example code for initializing Chart.js
+        var ctx = document.getElementById('polytechnicChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            // Your Chart.js configuration options
+            type: 'bar',
+            data: {
+                // Your chart data
+            },
+            options: {
+                // Your chart options
+            }
+        });
+
+        // Add code to handle map hotspots and tooltips
+        // Example:
+        $('.hotspot').hover(function () {
+            var polytechnicName = $(this).data('polytechnic');
+            // Show tooltip or perform other actions
+            console.log('Hovered over ' + polytechnicName);
+        });
+    </script>
+</body>
+
+</html>
